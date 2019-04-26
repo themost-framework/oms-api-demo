@@ -1,5 +1,5 @@
 # oms-api-demo
-Order Management Demo Api Server with [MOST Web Framework Codename Bluseshift](https://github.com/themost-framework/themost)
+Order Management Demo Api Server with [MOST Web Framework Codename Blueshift](https://github.com/themost-framework/themost)
 
 #### Clone repository
 
