@@ -1,37 +1,71 @@
 {
     "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
+    "@id": "http://schema.org/Offer",
     "name": "Offer",
     "title": "Offers",
     "hidden": false,
     "sealed": false,
     "abstract": false,
-    "version": "2.0",
+    "version": "2.1",
     "inherits": "Intangible",
     "fields": [
         {
-            "name": "id",
-            "title": "Id",
-            "type": "Integer",
-            "nullable": false,
-            "primary": true
+            "@id": "http://schema.org/price",
+            "name": "price",
+            "title": "Price",
+            "description": "The price of the product.",
+            "type": "Number"
         },
         {
-            "name": "addOn",
-            "title": "Add On",
-            "description": "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).",
-            "type": "Offer"
+            "@id": "http://schema.org/validFrom",
+            "name": "validFrom",
+            "title": "validFrom",
+            "description": "The date when the item becomes valid.",
+            "type": "DateTime"
         },
         {
-            "name": "priceValidUntil",
-            "title": "Price Valid Until",
-            "description": "The date after which the price is no longer available.",
-            "type": "Date"
+            "@id": "http://schema.org/validThrough",
+            "name": "validThrough",
+            "title": "validThrough",
+            "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.",
+            "type": "DateTime"
+        },
+        {
+            "@id": "http://schema.org/seller",
+            "name": "seller",
+            "title": "seller",
+            "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/offeredBy",
+            "name": "offeredBy",
+            "title": "offeredBy",
+            "description": "A pointer to the organization or person making the offer.",
+            "type": "Organization"
+        },
+        {
+            "@id": "http://schema.org/itemOffered",
+            "name": "itemOffered",
+            "title": "itemOffered",
+            "description": "The item being offered.",
+            "type": "Product"
         }
     ],
     "privileges": [
         {
             "mask": 15,
-            "type": "global"
+            "type": "global",
+            "account": "Administrators"
+        },
+        {
+            "mask": 1,
+            "type": "global",
+            "account": "Users"
+        },
+        {
+            "mask": 1,
+            "type": "item"
         }
     ]
 }
