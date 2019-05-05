@@ -164,6 +164,19 @@
             "title": "User",
             "description": "A user associated with this person.",
             "type": "User"
+        },
+        {
+            "@id": "https://themost.io/schemas/properties/orders",
+            "name": "orders",
+            "title": "Orders",
+            "type": "Order",
+            "mapping": {
+                "associationType": "association",
+                "childModel": "Order",
+                "childField": "customer",
+                "parentModel": "Person",
+                "parentField": "id"
+            }
         }
     ],
     "privileges": [
