@@ -179,7 +179,7 @@
         {
             "mask": 1,
             "type": "self",
-            "filter": "user/name eq me()"
+            "filter": "user eq me()"
         }
     ]
 }
