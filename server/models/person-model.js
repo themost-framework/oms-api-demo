@@ -1,5 +1,6 @@
 import {EdmMapping,EdmType} from '@themost/data/odata';
 import {DataObject} from '@themost/data/data-object';
+import {HttpNotFoundError} from "@themost/common";
 let Party = require('./party-model');
 /**
  * @class
@@ -47,6 +48,32 @@ class Person extends Party {
         return context.model('Person')
             .where('user/name').equal(context.user.name)
             .prepare();
+    }
+
+    /**
+     * @param {*} product
+     * @param {*} paymentMethod
+     * @returns {*}
+     */
+    @EdmMapping.param('paymentMethod','PaymentMethod', false)
+    @EdmMapping.param('product','Product', false)
+    @EdmMapping.action('Order', 'Order')
+    async orderProduct(product, paymentMethod) {
+        // get product
+        const orderedItem = this.context.model('Product').find(product).getItem();
+        // if order cannot be found throw error
+        if (orderedItem == null) {
+            throw new HttpNotFoundError('Product not found');
+        }
+        // create an order
+        const newOrder = {
+            orderedItem: orderedItem,
+            customer: this,
+            paymentMethod: paymentMethod
+        };
+        await this.context.model('Order').save(newOrder);
+        // and finally return new order
+        return newOrder;
     }
 
 }
