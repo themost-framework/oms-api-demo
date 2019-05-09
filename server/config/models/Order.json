@@ -87,7 +87,7 @@
             "description": "The identifier of the transaction.",
             "type": "Text",
             "readonly": true,
-            "value": "javascript:return this.newOrderNumber();"
+            "value": "javascript:return this.numbers(12);"
         },
         {
             "name": "orderStatus",

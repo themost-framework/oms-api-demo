@@ -13,10 +13,9 @@
     "serve": "gulp serve"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "@themost/cli": "^2.1.9",
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.0",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
@@ -24,10 +23,13 @@
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
+    "@themost/cli": "^2.1.9",
+    "babel-eslint": "^10.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-eslint": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "@themost/client": "^2.1.3",
